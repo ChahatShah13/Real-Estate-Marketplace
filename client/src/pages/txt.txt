@@ -1,0 +1,10 @@
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/auth/sign-up", formData); // Axios POST request
+      setSuccess(res.data.message); // Handle successful response (adjust as needed)
+      setError(null);
+    } catch (err) {
+      setError(err.response ? err.response.data.error : "An error occurred");
+    }
+  };
